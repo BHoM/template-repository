@@ -27,8 +27,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 
-namespace BH.Engine.Adapters.SoftwareName // Replace `SoftwareName` to the name of the software being targeted by this Toolkit.
-// NOTE: Make sure to replace `SoftwareName` also in the Project name and in the Project Properties "Application" tab (Assembly Name and Default Namespace).
+namespace BH.Engine.Adapters.SoftwareName
 {
     public static partial class Compute
     {

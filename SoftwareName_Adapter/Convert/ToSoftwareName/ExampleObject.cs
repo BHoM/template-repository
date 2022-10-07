@@ -28,8 +28,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.Adapter.SoftwareName // Rename the parent folder `SoftwareName` with the name of your Toolkit's software, and this namespace.
-// NOTE: Make sure to replace `SoftwareName` also in the Project name and in the Project Properties "Application" tab (Assembly Name and Default Namespace).
+namespace BH.Adapter.SoftwareName
 {
     public static partial class Convert
     {
