@@ -23,6 +23,7 @@
 using BH.Adapter;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,6 +36,7 @@ namespace BH.Adapter.SoftwareName
         /**** Constructors                              ****/
         /***************************************************/
 
+        [Description("Adapter for SoftwareName")]
         public SoftwareNameAdapter()
         {
             // The Adapter constructor can be used to configure the Adapter behaviour.

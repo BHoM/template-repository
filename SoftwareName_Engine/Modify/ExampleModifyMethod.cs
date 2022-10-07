@@ -38,8 +38,7 @@ namespace BH.Engine.Adapters.SoftwareName // Replace `SoftwareName` to the name 
         /***************************************************/
 
         [Description("Description of the method. Will appear in the UI tooltip.")]
-        [Input("someInput1", "Description of the input. Will appear in the UI tooltip.")]
-        [Input("someInput2", "Description of the input. Will appear in the UI tooltip.")]
+        [Input("objectToModify", "Description of the input. Will appear in the UI tooltip.")]
         [Output("outputName", "Description of the output. Will appear in the UI tooltip.")]
         public static ExampleObject ExampleCreateMethod(ExampleObject objectToModify)
         {
