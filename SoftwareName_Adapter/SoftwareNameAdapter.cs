@@ -21,6 +21,7 @@
  */
 
 using BH.Adapter;
+using BH.oM.Base.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,7 +37,8 @@ namespace BH.Adapter.SoftwareName
         /**** Constructors                              ****/
         /***************************************************/
 
-        [Description("Adapter for SoftwareName")]
+        [Description("Adapter for SoftwareName.")]
+        [Output("The created SoftwareName adapter.")]
         public SoftwareNameAdapter()
         {
             // The Adapter constructor can be used to configure the Adapter behaviour.
