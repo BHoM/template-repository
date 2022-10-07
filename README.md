@@ -2,8 +2,8 @@
 This repository can be used to create brand new BHoM Toolkits :rocket:
 
 In order to use it:
-- Fork this repository, and call it with the name of your software, like "SoftwareName_Toolkit".
-- In your new forked repository, double click the `RenameAll.bat` file. When asked, insert the name of your software, e.g. "Robot". All the files and folder will be renamed accordingly.
+- Use this template repository to create your own repository. Call it with the name of your software, like "SoftwareName_Toolkit".
+- In your new repository, double click the `RenameAll.bat` file. When asked, insert the name of your software, e.g. "Robot". All the files and folder will be renamed accordingly.
 - Start developing! :rocket:
 
 ## Getting started and templates
