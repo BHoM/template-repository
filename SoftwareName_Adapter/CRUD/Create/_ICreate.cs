@@ -31,7 +31,7 @@ using System.Threading.Tasks;
 namespace BH.Adapter.SoftwareName // Rename this namespace `SoftwareName` with the name of your Toolkit's software.
 // NOTE: Make sure to replace `SoftwareName` also in the Project name and in the Project Properties "Application" tab (Assembly Name and Default Namespace).
 {
-    public partial class SoftwareNameAdapter
+    public partial class SoftwareNameAdapter : BHoMAdapter
     {
         // NOTE: CRUD folder methods
         // All methods in the CRUD folder are used as "back-end" methods by the Adapter itself.
