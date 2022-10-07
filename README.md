@@ -1,9 +1,8 @@
 # template-repository
 This repository can be used to create brand new BHoM Toolkits :rocket:
 
-In order to use it:
-- Use this template repository to create your own repository. Just click on the green button above "Use this template" :point_up_2: . Call it with the name of your software, like "SoftwareName_Toolkit".
-- In your new repository, double click the `RenameToolkitFiles.bat` file. When asked, insert the name of your software, e.g. "Robot". All the files and folder will be renamed accordingly.
+- Just click on the green button above "Use this template" :point_up_2: . Call the new repo with the name of your software followed by `_Toolkit`, e.g. "MySoftware_Toolkit".
+- In your new repository, double click the `RenameToolkitFiles.bat` file. When asked, insert the name of your software, e.g. "MySoftware". All the files and folder will be renamed accordingly.
 - Start developing! :rocket:
 
 ## Configure development environment
