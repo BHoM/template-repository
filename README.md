@@ -1,6 +1,11 @@
 # template-repository
 This repository can be used to create brand new BHoM Toolkits :rocket:
 
+In order to use it:
+- Fork this repository, and call it with the name of your software, like "SoftwareName_Toolkit".
+- In your new forked repository, double click the `RenameAll.bat` file. When asked, insert the name of your software, e.g. "Robot". All the files and folder will be renamed accordingly.
+- Start developing! :rocket:
+
 ## Getting started and templates
 Learn how to [rapidly set up your development environment for BHoM here](https://github.com/BHoM/documentation/wiki/Getting-started-for-developers). 
 
