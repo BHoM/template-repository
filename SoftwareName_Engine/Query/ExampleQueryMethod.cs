@@ -30,7 +30,7 @@ using System.Linq;
 
 namespace BH.Engine.Adapters.SoftwareName
 {
-    public static partial class Create
+    public static partial class Query
     {
         /***************************************************/
         /**** Public Methods                            ****/
