@@ -38,12 +38,17 @@ namespace BH.Engine.Adapters.SoftwareName
 
         [Description("Description of the method. Will appear in the UI tooltip.")]
         [Input("exampleObject", "Description of the input. Will appear in the UI tooltip.")]
+        [Input("additionalInput", "Description of the input. Will appear in the UI tooltip.")]
         [Output("outputName", "Description of the output. Will appear in the UI tooltip.")]
-        public static string ExampleCreateMethod(ExampleObject exampleObject)
+        public static string ExampleCreateMethod(this ExampleObject exampleObject, string additionalInput = "")
         {
+            // NOTE: Extension method
+            // Query methods should return some data that is derivable from a main input object on which they operate upon. 
+            // For this reason, they are to be written as extension methods (using the `this` keyword on the first input).
+
             // This method will appear in every UI (e.g. Grasshopper) as a component.
             // Find it using the CTRL+Shift+B search bar, or by navigating the `Create` component (Engine tab) right click menu.
-            return exampleObject.SomeStringProperty + exampleObject.SomeNumberProperty.ToString();
+            return exampleObject.SomeStringProperty + exampleObject.SomeNumberProperty.ToString() + additionalInput;
         }
 
         /***************************************************/
