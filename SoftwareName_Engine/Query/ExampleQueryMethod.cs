@@ -40,7 +40,7 @@ namespace BH.Engine.Adapters.SoftwareName
         [Input("exampleObject", "Description of the input. Will appear in the UI tooltip.")]
         [Input("additionalInput", "Description of the input. Will appear in the UI tooltip.")]
         [Output("outputName", "Description of the output. Will appear in the UI tooltip.")]
-        public static string ExampleCreateMethod(this ExampleObject exampleObject, string additionalInput = "")
+        public static string ExampleQueryMethod(this ExampleObject exampleObject, string additionalInput = "")
         {
             // NOTE: Extension method
             // Query methods should return some data that is derivable from a main input object on which they operate upon. 
