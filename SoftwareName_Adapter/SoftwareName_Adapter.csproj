@@ -4,6 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>SoftwareName_Adapter</AssemblyName>
     <RootNamespace>BH.Adapter.SoftwareName</RootNamespace>
+    <BaseOutputPath>..\Build\</BaseOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
