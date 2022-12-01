@@ -3,65 +3,76 @@ using namespace System.Collections.Generic
 
 $softwareName = Read-Host "Please enter the software name."
 
-# Replace occurrences of "SoftwareName" in all files
-Get-ChildItem -File -Recurse | ForEach-Object {
-    try {
-        (Get-Content $_.FullName) -replace 'SoftwareName', $softwareName | Set-Content $_.FullName
-    } 
-    catch {}
-}
-
-# Rename files and folders
-$stack = [Stack[string]]::new()
-$allPaths = [List[string]]::new()
-
-
-# Get all files and directories containing "SoftwareName" recursively
-Get-ChildItem -Recurse -Directory | ForEach-Object {
-    $dirpath = $_.FullName
-    $dirname = Split-Path  $dirpath -Leaf
-    if ($dirname.Contains("SoftwareName"))
-    {
-        Write-Host "dirpath: " $dirpath
-        $stack.Push($dirpath)
-        $allPaths.Add($dirpath)
+try 
+{
+    # Replace occurrences of "SoftwareName" in all files
+    Get-ChildItem -File -Recurse | ForEach-Object {
+        try {
+            (Get-Content $_.FullName) -replace 'SoftwareName', $softwareName | Set-Content $_.FullName
+        } 
+        catch {}
     }
 
-    # Write-Host $_.FullName
+    # Rename files and folders
+    $stack = [Stack[string]]::new()
+    $allPaths = [List[string]]::new()
 
-    foreach ($file in [Directory]::EnumerateFiles($dirpath)) 
-    {
-        $filename = [Path]::GetFileName($file)
-        if ($filename.Contains('SoftwareName') -and -not $allPaths.Contains($file))
+
+    # Get all files and directories containing "SoftwareName" recursively
+    Get-ChildItem -Recurse -Directory | ForEach-Object {
+        $dirpath = $_.FullName
+        $dirname = Split-Path  $dirpath -Leaf
+        if ($dirname.Contains("SoftwareName"))
         {
-            Write-Host "filepath: " $file
-            $stack.Push($file)
-            $allPaths.Add($file)
+            Write-Host "dirpath: " $dirpath
+            $stack.Push($dirpath)
+            $allPaths.Add($dirpath)
+        }
+
+        # Write-Host $_.FullName
+
+        foreach ($file in [Directory]::EnumerateFiles($dirpath)) 
+        {
+            $filename = [Path]::GetFileName($file)
+            if ($filename.Contains('SoftwareName') -and -not $allPaths.Contains($file))
+            {
+                Write-Host "filepath: " $file
+                $stack.Push($file)
+                $allPaths.Add($file)
+            }
         }
     }
-}
 
-# Add root files
-Get-ChildItem -File | ForEach-Object {
-    if ($_.FullName.Contains("SoftwareName")) {
-        Write-Host "filepath: " $_.FullName
-        $stack.Push($_.FullName)
+    # Add root files
+    Get-ChildItem -File | ForEach-Object {
+        if ($_.FullName.Contains("SoftwareName")) {
+            Write-Host "filepath: " $_.FullName
+            $stack.Push($_.FullName)
+        }
     }
-}
 
-# Rename files and folders
-while ($stack.Count) {
-    $poppedFullName = $stack.Pop()
-    $pathExists = (-not ([string]::IsNullOrEmpty($poppedFullName))) -and (Test-Path -Path $poppedFullName)
+    # Rename files and folders
+    while ($stack.Count) {
+        $poppedFullName = $stack.Pop()
+        $pathExists = (-not ([string]::IsNullOrEmpty($poppedFullName))) -and (Test-Path -Path $poppedFullName)
 
-    $filename = [Path]::GetFileName($poppedFullName)
+        $filename = [Path]::GetFileName($poppedFullName)
 
-    if($filename.Contains('SoftwareName') -and $pathExists)
-    {
-        $newName = $filename.Replace('SoftwareName', $softwareName)
+        if($filename.Contains('SoftwareName') -and $pathExists)
+        {
+            $newName = $filename.Replace('SoftwareName', $softwareName)
 
-        Write-Host "Renaming: " $poppedFullName " to: " $newName
+            Write-Host "Renaming: " $poppedFullName " to: " $newName
 
-        Rename-Item -LiteralPath $poppedFullName -NewName $newName #-WhatIf
+            Rename-Item -LiteralPath $poppedFullName -NewName $newName #-WhatIf
+        }
     }
+
+    Write-Host "All files and folders renamed successfully."
 }
+catch 
+{
+    Write-Host "An error occurred:"
+    Write-Host $_
+}
+
