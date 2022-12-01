@@ -73,11 +73,11 @@ try
         }
     }
 
-    Write-Host "All files and folders renamed successfully."
+    Write-Host "`nAll files and folders renamed successfully."
 }
 catch 
 {
-    Write-Host "An error occurred:"
+    Write-Host "`nAn error occurred:"
     Write-Host $_
 }
 
