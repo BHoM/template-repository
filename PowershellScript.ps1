@@ -8,6 +8,11 @@ try
     # Replace occurrences of "SoftwareName" in all files
     Get-ChildItem -File -Recurse | ForEach-Object {
         try {
+            If ((Get-Content $_.Extension -eq ".ps1") -or (Get-Content $_.Extension -eq ".bat")) 
+                {
+                    continue
+                }
+
             (Get-Content $_.FullName) -replace 'SoftwareName', $softwareName | Set-Content $_.FullName
         } 
         catch {}
