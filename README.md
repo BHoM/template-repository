@@ -12,4 +12,4 @@ If you want, you can also add [Engine methods templates](https://github.com/BHoM
 
 
 ## Implement the Toolkits
-See the instructions in [the wiki page on the BHoM_Toolkit](https://github.com/BHoM/documentation/wiki/The-BHoM-Toolkit).
+See the instructions in [the documentation page on the BHoM_Toolkit](https://bhom.xyz/documentation/Basics/The-BHoM-Toolkit/#implementing-a-new-toolkit).
