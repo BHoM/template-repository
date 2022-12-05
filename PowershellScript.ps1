@@ -6,17 +6,41 @@ $softwareName = Read-Host "Please enter the software name."
 try 
 {
     # Replace occurrences of "SoftwareName" in all files
+    Write-Host "`nReplacing occurrences of 'SoftwareName' with '" $softwareName "' in all files.`n"
+
+    $replace_successful = $true
     Get-ChildItem -File -Recurse | ForEach-Object {
         try {
             If ((Get-Content $_.Extension -eq ".ps1") -or (Get-Content $_.Extension -eq ".bat")) 
                 {
                     continue
                 }
+        } catch {}
 
+        try
+        {
             (Get-Content $_.FullName) -replace 'SoftwareName', $softwareName | Set-Content $_.FullName
         } 
-        catch {}
+        catch 
+        {
+            Write-Host "`nAn error occurred when replacing file contents of " $_.FullName ":"
+            Write-Host $_
+            $replace_successful = $false
+        }
+     }
+
+    If($replace_successful)
+    {
+        Write-Host "`nSuccessfully replaced files contents.`n"
     }
+    else
+    {
+        Write-Host "`nCould not replace some file contents.`n"
+    }
+    
+
+    Write-Host "`nRenaming files with '" $softwareName "':`n"
+
 
     # Rename files and folders
     $stack = [Stack[string]]::new()
