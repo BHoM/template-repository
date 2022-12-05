@@ -1,12 +1,12 @@
 using namespace System.IO
 using namespace System.Collections.Generic
 
-$softwareName = Read-Host "Please enter the software name."
+$softwareName = Read-Host "`nPlease enter the software name."
 
 try 
 {
     # Replace occurrences of "SoftwareName" in all files
-    Write-Host "`nReplacing occurrences of 'SoftwareName' with '" $softwareName "' in all files.`n"
+    Write-Host "`nReplacing occurrences of 'SoftwareName' with "$softwareName" in all files.`n"
 
     $replace_successful = $true
     Get-ChildItem -File -Recurse | ForEach-Object {
@@ -31,15 +31,15 @@ try
 
     If($replace_successful)
     {
-        Write-Host "`nSuccessfully replaced files contents.`n"
+        Write-Host "Successfully replaced files contents.`n"
     }
     else
     {
-        Write-Host "`nCould not replace some file contents.`n"
+        Write-Host "`nERROR: Could not replace some file contents.`n"
     }
     
 
-    Write-Host "`nRenaming files with '" $softwareName "':`n"
+    Write-Host "`nRenaming files and directories using "$softwareName":`n"
 
 
     # Rename files and folders
@@ -53,7 +53,6 @@ try
         $dirname = Split-Path  $dirpath -Leaf
         if ($dirname.Contains("SoftwareName"))
         {
-            Write-Host "dirpath: " $dirpath
             $stack.Push($dirpath)
             $allPaths.Add($dirpath)
         }
@@ -65,7 +64,6 @@ try
             $filename = [Path]::GetFileName($file)
             if ($filename.Contains('SoftwareName') -and -not $allPaths.Contains($file))
             {
-                Write-Host "filepath: " $file
                 $stack.Push($file)
                 $allPaths.Add($file)
             }
@@ -75,7 +73,6 @@ try
     # Add root files
     Get-ChildItem -File | ForEach-Object {
         if ($_.FullName.Contains("SoftwareName")) {
-            Write-Host "filepath: " $_.FullName
             $stack.Push($_.FullName)
         }
     }
@@ -101,7 +98,7 @@ try
 }
 catch 
 {
-    Write-Host "`nAn error occurred:"
+    Write-Host "`nERROR:"
     Write-Host $_
 }
 
