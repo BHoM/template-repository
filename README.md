@@ -9,4 +9,4 @@ This repository can be used to create brand new BHoM Toolkits :rocket:
 Learn how to [set up your development environment for BHoM here](https://bhom.xyz/documentation/Guides-and-Tutorials/Coding-with-BHoM/). 
 
 ## Implement the Toolkits
-See the instructions for in our contributing guides on [implementing a new BHoM Toolkit](https://bhom.xyz/documentation/Contributing/Implementing-a-new-Toolkit/).
+See the instructions for [creating a new toolkit here](https://bhom.xyz/documentation/Contributing/Implementing-a-new-Toolkit/).
